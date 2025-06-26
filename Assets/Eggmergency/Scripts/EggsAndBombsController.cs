@@ -60,10 +60,13 @@ namespace Eggmergency.Scripts
                 if (targetPosition.y > handY - .1f && targetPosition.y < handY + .1f &&
                     _player.LeanValue == -obj.Key.LaneX)
                 {
-                     Debug.Log("Catch!");
                      switch (obj.Key.Type)
                      {
-                         case eObjectType.Egg:GameEvents.TriggerCatchEgg(_player);break;
+                         case eObjectType.Egg:
+                             GameEvents.TriggerCatchEgg(_player);
+                             var egg = obj.Value.GetComponent<Egg>();
+                             egg.TweenToAndQueue(_player.EggHolder, _eggPool);
+                             break;
                          case eObjectType.Bomb:GameEvents.TriggerCatchBomb(_player);break;
                          
                      }
@@ -89,7 +92,7 @@ namespace Eggmergency.Scripts
             switch (e.Type)
             {
                 case eObjectType.Egg:
-                    _eggPool.Queue(obj);
+                    //_eggPool.Queue(obj);
                     break;
                 case eObjectType.Bomb:
                     _bombPool.Queue(obj);

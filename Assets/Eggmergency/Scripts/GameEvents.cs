@@ -8,8 +8,10 @@ namespace Eggmergency.Scripts
     {
         //Game State Events
         public static Action<eGameState> GameStateChanged ;
+        public static Action<PlayerInstanceController[]> PlayerInstanceChanged ;
         
         public static void TriggerGameStateChanged(eGameState gameState)=>GameStateChanged?.Invoke(gameState);
+        public static void TriggerPlayerInstanceChanged(PlayerInstanceController[] players)=>PlayerInstanceChanged?.Invoke(players);
         
         
         //Level Events

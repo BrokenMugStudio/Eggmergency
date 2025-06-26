@@ -8,21 +8,40 @@ namespace Eggmergency.Scripts
 {
     public class PlayerCharacterController : MonoBehaviour
     {
-        [SerializeField] private bool _isMine;
+        private ePlayerType _playerType;
         [SerializeField] private LeanController _leanController;
         [SerializeField] private ParticleSystem _failFx;
-       // [SerializeField] private ParticleSystem _successFx;
+        [SerializeField]private Transform _eggHolder;
+        public Transform EggHolder=>_eggHolder;
         public int LeanValue=>_leanController.LeanValue;
-       
-
+        
+        //Bot Settings
+        private float _leanChangeCooldown;
+        private int[] botInputs = new[] { -1, 0, 1 };
         private void Update()
         {
-            if (!_isMine)
+            if (GameController.GameState != eGameState.Playing)
             {
                 return;
             }
-            var input=Input.GetAxisRaw("Horizontal");
-            _leanController.SetLean(input);
+            if (_playerType==ePlayerType.Player)
+            {
+                var input=Input.GetAxisRaw("Horizontal");
+                _leanController.SetLean(input);
+            }else if (_playerType == ePlayerType.CPU)
+            {
+                if (_leanChangeCooldown <= 0)
+                {
+                    var fakeInput=botInputs[UnityEngine.Random.Range(0,botInputs.Length)];
+                    _leanController.SetLean(fakeInput);
+                    _leanChangeCooldown = UnityEngine.Random.Range(2f, 5f);
+                }
+                else
+                {
+                    _leanChangeCooldown -= Time.deltaTime;
+                }
+            }
+           
         }
 
         public void PlayerCatchEgg()
@@ -37,6 +56,11 @@ namespace Eggmergency.Scripts
             transform.DOKill();
             transform.DOPunchScale(new Vector3(-.1f,.2f,-.1f), .15f);
             _failFx?.Play();
+        }
+
+        public void SetPlayerTyper(ePlayerType playerType)
+        {
+            _playerType= playerType;   
         }
     }
 }

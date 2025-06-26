@@ -12,15 +12,15 @@ namespace Eggmergency.Scripts
         [SerializeField] private LevelController _levelController;
         [SerializeField] private PlayerInstanceController[] _playerInstances;
         
-        private eGameState _gameState;
+        public static eGameState GameState;
         private float _levelDurration;
         private int _eggCount;
-        public eGameState GameState
+        public eGameState _gameState
         {
-            get{return _gameState;}
+            get{return GameState;}
             set
             {
-                _gameState = value;
+                GameState = value;
                 GameEvents.TriggerGameStateChanged(value);
 
             }
@@ -47,17 +47,18 @@ namespace Eggmergency.Scripts
         }
         private void Initialize()
         {
-            GameState = eGameState.Idle;
+            _gameState = eGameState.Idle;
             _levelDurration = _levelTimeline.GetLastEventTime() + 5;
             _levelController.Initialize(_levelTimeline);
+            GameEvents.TriggerPlayerInstanceChanged(_playerInstances);
             for (int i = 0; i < _playerInstances.Length; i++)
             {
-                _playerInstances[i].Initialize();
+                _playerInstances[i].Initialize(i,_playerInstances.Length);
             }
         }
         private void Update()
         {
-            if (GameState == eGameState.Playing)
+            if (_gameState == eGameState.Playing)
             {
                 _time+= Time.deltaTime;
                 _levelController.UpdateTime(_time);
@@ -77,13 +78,13 @@ namespace Eggmergency.Scripts
         private void StartGame()
         {
             _time = 0;
-            GameState = eGameState.Playing;
+            _gameState = eGameState.Playing;
             
         }
 
         private void CompleteGame()
         {
-            GameState = eGameState.Completed;
+            _gameState = eGameState.Completed;
 
         }
     }

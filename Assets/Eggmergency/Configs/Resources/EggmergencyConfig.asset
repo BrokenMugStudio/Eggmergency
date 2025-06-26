@@ -12,3 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8350b7581d26bf428d976fb0b37bebb, type: 3}
   m_Name: EggmergencyConfig
   m_EditorClassIdentifier: 
+  _playerColors:
+  - {r: 0.1462264, g: 0.507767, b: 1, a: 1}
+  - {r: 0.49284926, g: 1, b: 0.14509803, a: 1}
+  - {r: 1, g: 0.2589329, b: 0.14509803, a: 1}
+  - {r: 0.77254206, g: 0.14509803, b: 1, a: 1}
+  PlayerInstanceWidth: 1.5
+  CatchEggSFX: {fileID: 8300000, guid: 101ec785900fc444987c2c795d0db569, type: 3}
+  CatchBombSFX: {fileID: 8300000, guid: 108ea58675b9eb3448275f7541712f8e, type: 3}

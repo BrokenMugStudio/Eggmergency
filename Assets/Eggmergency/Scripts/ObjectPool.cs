@@ -63,6 +63,8 @@ namespace Eggmergency.Scripts
             _queue.Add(obj);
             obj.SetActive(false);
             obj.transform.SetParent(_poolHolder);
+            transform.localScale = Vector3.one;
+
         }
 
         public GameObject Dequeue()
