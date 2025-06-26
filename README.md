@@ -18,3 +18,7 @@
 - Config File (ScriptableObject) in `Assets/Eggmergency/Configs/Resources` that has some useful settings for the game
 - "Level" settings (ScriptableObject) is in `Assets/Eggmergency/Configs/Levels`
 - The rest of the "Swappable stuff" are in `Assets/Eggmergency/Prefabs`
+
+## 3rd Party packages used
+- Dotween
+- Toon colors pro 2
