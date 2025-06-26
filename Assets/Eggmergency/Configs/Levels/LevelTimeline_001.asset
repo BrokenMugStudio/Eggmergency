@@ -49,3 +49,63 @@ MonoBehaviour:
   - SpawnTime: 12
     Type: 1
     LaneX: 0
+  - SpawnTime: 13
+    Type: 1
+    LaneX: -1
+  - SpawnTime: 13.5
+    Type: 1
+    LaneX: 1
+  - SpawnTime: 14
+    Type: 1
+    LaneX: 0
+  - SpawnTime: 14.5
+    Type: 1
+    LaneX: -1
+  - SpawnTime: 15
+    Type: 1
+    LaneX: 1
+  - SpawnTime: 15.5
+    Type: 1
+    LaneX: 0
+  - SpawnTime: 16.5
+    Type: 1
+    LaneX: -1
+  - SpawnTime: 16.5
+    Type: 2
+    LaneX: 0
+  - SpawnTime: 17
+    Type: 1
+    LaneX: 1
+  - SpawnTime: 18
+    Type: 1
+    LaneX: 0
+  - SpawnTime: 18.25
+    Type: 1
+    LaneX: 1
+  - SpawnTime: 18.5
+    Type: 1
+    LaneX: -1
+  - SpawnTime: 18.75
+    Type: 1
+    LaneX: 0
+  - SpawnTime: 19
+    Type: 1
+    LaneX: 1
+  - SpawnTime: 19.25
+    Type: 1
+    LaneX: 1
+  - SpawnTime: 19.5
+    Type: 1
+    LaneX: -1
+  - SpawnTime: 19.75
+    Type: 1
+    LaneX: -1
+  - SpawnTime: 20
+    Type: 1
+    LaneX: 1
+  - SpawnTime: 20.25
+    Type: 1
+    LaneX: 1
+  - SpawnTime: 20.5
+    Type: 1
+    LaneX: 0

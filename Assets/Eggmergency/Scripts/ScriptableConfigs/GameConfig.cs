@@ -9,7 +9,8 @@ namespace Eggmergency.Scripts.ScriptableConfigs
     {
         [SerializeField]private Color[] _playerColors;
         public float PlayerInstanceWidth=1.5f;
-        
+        public float LeanMovementRange = 0.25f;
+        public float LeanMovementSpeed = 15f;
         [Header("Sound Effects")]
         public AudioClip CatchEggSFX;
         public AudioClip CatchBombSFX;

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
@@ -7,6 +8,12 @@ using UnityEngine;
 public class Egg : MonoBehaviour
 {
     private ObjectPool _pool;
+
+    private void OnEnable()
+    {
+        transform.localScale = Vector3.one;
+    }
+
     public void TweenToAndQueue(Transform targetPosition, ObjectPool pool)
     {
         _pool=pool;
